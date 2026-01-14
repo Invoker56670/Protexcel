@@ -7,7 +7,16 @@ import re
 import os
 import time
 from functools import wraps
-from scam_model import AdvancedTextPreprocessor, TextComplexityExtractor
+
+# Try import and capture error so we don't crash the whole container on startup
+import_error = None
+try:
+    from scam_model import AdvancedTextPreprocessor, TextComplexityExtractor
+except Exception as e:
+    import_error = str(e)
+    # Define dummy classes to satisfy server references (logic will fail gracefully later)
+    class AdvancedTextPreprocessor: pass
+    class TextComplexityExtractor: pass
 
 app = Flask(__name__)
 # Load config from Environment
@@ -130,6 +139,10 @@ def hybrid_check(message, prediction, confidence):
 @app.route('/api/predict', methods=['POST'])
 @rate_limit
 def predict():
+    global import_error
+    if import_error:
+        return jsonify({'error': f'Startup Import Failed: {import_error}'}), 500
+        
     if not model:
         load_model()
         if not model:
