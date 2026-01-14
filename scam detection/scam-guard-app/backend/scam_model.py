@@ -1,5 +1,3 @@
-
-import pandas as pd
 import numpy as np
 import re
 import pickle
@@ -9,6 +7,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.base import BaseEstimator, TransformerMixin
+
+# Helper to load pandas only when training (not on Vercel inference)
+def get_pandas():
+    import pandas as pd
+    return pd
 
 # --- 1. Robust Text Preprocessor (No NLTK) ---
 class AdvancedTextPreprocessor(BaseEstimator, TransformerMixin):
@@ -77,6 +80,7 @@ def load_and_augment_data():
     
     # 1. Load Real Scam Data
     try:
+        pd = get_pandas()
         print("Loading real scam data from CSV...")
         df_real = pd.read_csv('unified_scam_detection_dataset.csv')
         if 'scammer_message' in df_real.columns:
@@ -94,7 +98,7 @@ def load_and_augment_data():
     except FileNotFoundError:
         print("CSV not found. Using fully synthetic data.")
         df_syn = generate_synthetic_data(n_samples=200)
-        return df_syn['message'], df_syn['label']
+        return df_syn
 
     # 2. Generate Balanced Safe Data
     # We need as many safe examples as scams to avoid bias
@@ -117,7 +121,20 @@ def load_and_augment_data():
         "Let's catch up this weekend.",
         "The code is working fine now.",
         "Don't forget to buy milk.",
-        "I love this song!"
+        "I love this song!",
+        "Hi",
+        "Hello",
+        "How are you?",
+        "What's up?",
+        "Ok",
+        "Sure",
+        "No problem",
+        "See you",
+        "Good morning",
+        "Good night",
+        "Call me back",
+        "Where are you?",
+        "On my way"
     ]
     
     for _ in range(n_safe_needed):
@@ -136,8 +153,7 @@ def train_and_save_model():
     X = df['message']
     y = df['label']
     
-    if isinstance(df, tuple): # Handle fallback return
-        X, y = df
+
     
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
