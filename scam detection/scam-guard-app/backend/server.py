@@ -55,14 +55,18 @@ def rate_limit(f):
     return decorated_function
 
 # --- Model Loading ---
+load_error = None
+
 def load_model():
-    global model
+    global model, load_error
     try:
         with open(MODEL_PATH, 'rb') as f:
             model = pickle.load(f)
         print("Model loaded successfully.")
+        load_error = None
     except Exception as e:
         print(f"Error loading model: {e}")
+        load_error = str(e)
         model = None
 
 def get_intent(text, is_scam):
@@ -129,7 +133,7 @@ def predict():
     if not model:
         load_model()
         if not model:
-            return jsonify({'error': 'Model not available'}), 500
+            return jsonify({'error': f'Model load failed: {load_error}'}), 500
     
     data = request.json
     message = data.get('message', '')
