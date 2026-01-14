@@ -1,0 +1,83 @@
+{
+    "navbar": {
+        "title": "सु रक्षा",
+        "edition": "एंटरप्राइज़ संस्करण",
+        "language": "HI-IN",
+        "seniorOn": "सुलभता: चालू",
+        "seniorOff": "सुलभता: बंद"
+    },
+    "messageShield": {
+        "title": "खतरा स्कैनर",
+        "version": "V.2.0.4 सक्रिय",
+        "inputLabel": "डेटा स्ट्रीम दर्ज करें",
+        "placeholder": "संदिग्ध डेटा यहां पेस्ट करें...",
+        "scanBtn": "स्कैन शुरू करें",
+        "processing": "प्रक्रिया जारी...",
+        "clearBtn": "डेटा साफ़ करें",
+        "systemReady": "सिस्टम तैयार",
+        "awaitingInput": "इनपुट की प्रतीक्षा",
+        "analyzing": "पैटर्न का विश्लेषण...",
+        "classificationLabel": "वर्गीकरण परिणाम",
+        "threatDetected": "⚠️ खतरा पाया गया",
+        "verifiedSafe": "✅ सुरक्षित सत्यापित",
+        "confidence": "विश्वास स्तर",
+        "detectedIntent": "पता लगाया गया इरादा",
+        "analysisReport": "विश्लेषण रिपोर्ट",
+        "blockSource": "स्रोत ब्लॉक करें",
+        "reportEvent": "घटना की रिपोर्ट करें"
+    },
+    "callShield": {
+        "title": "सुरक्षित वॉइस मॉनिटर",
+        "desc": "रियल-टाइम ऑडियो धोखाधड़ी का पता लगाने के लिए कॉल का अनुकरण करें।",
+        "startSim": "सिमुलेशन शुरू करें",
+        "incoming": "आने वाला ट्रांसमिशन...",
+        "unknownCaller": "अज्ञात कॉलर",
+        "potentialSpam": "संभावित स्पैम जांच: सक्रिय",
+        "liveTranscript": "लाइव ट्रांसक्रिप्ट",
+        "endCall": "कनेक्शन समाप्त करें",
+        "callEnded": "कनेक्शन समाप्त",
+        "resetMonitor": "मॉनिटर रीसेट करें",
+        "threatDetected": "खतरा पाया गया",
+        "monitoringAudio": "ऑडियो निगरानी"
+    },
+    "familyCircle": {
+        "title": "भरोसेमंद संपर्क",
+        "addNew": "+ नया जोड़ें",
+        "operationalProtocol": "परिचालन प्रोटोकॉल",
+        "protocolDesc": "यदि उच्च-स्तरीय खतरा पहचाना जाता है, तो भरोसेमंद संपर्कों को तत्काल एन्क्रिप्टेड अलर्ट प्राप्त होंगे।",
+        "coachTitle": "सुरक्षा प्रशिक्षण (कोच)",
+        "reviewProtocols": "नेटवर्क से जुड़ने से पहले मुख्य सुरक्षा प्रोटोकॉल की समीक्षा करें।",
+        "rule1Title": "नियम #1: कोई साझा कोड नहीं",
+        "rule1Desc": "कभी भी OTP या 2FA कोड साझा न करें। कोई अपवाद नहीं।",
+        "rule2Title": "नियम #2: शून्य विश्वास तात्कालिकता",
+        "rule2Desc": "\"तुरंत कार्रवाई करें\" = उच्च संभावना खतरा।",
+        "rule3Title": "नियम #3: रिमोट एक्सेस अस्वीकृत",
+        "rule3Desc": "AnyDesk/TeamViewer डाउनलोड करने के सभी अनुरोधों को अस्वीकार करें।",
+        "beginTraining": "प्रशिक्षण मॉड्यूल शुरू करें",
+        "progress": "प्रगति",
+        "moduleComplete": "मॉड्यूल पूरा हुआ",
+        "score": "स्कोर",
+        "certifiedSecure": "प्रमाणित सुरक्षित",
+        "retraining": "पुनः प्रशिक्षण अनुशंसित।",
+        "returnMenu": "मेनू पर वापस जाएं",
+        "inDevelopment": "विकास में",
+        "featureLocked": "सुविधा लॉक है"
+    },
+    "reportScam": {
+        "title": "नई घटना की रिपोर्ट करें",
+        "category": "स्कैम श्रेणी",
+        "numberId": "स्कैमर का नंबर / आईडी",
+        "description": "विवरण",
+        "submit": "रिपोर्ट जमा करें",
+        "submitted": "रिपोर्ट जमा की गई ✅",
+        "heatmapTitle": "लाइव स्कैम हीटमैप",
+        "recentAlerts": "आपके पास हाल के अलर्ट",
+        "mapUnavailable": "मैप अनुपलब्ध (डेमो)"
+    },
+    "tabs": {
+        "message": "संदेश कवच",
+        "call": "कॉल रक्षक",
+        "family": "परिवार सुरक्षा",
+        "report": "शिकायत करें"
+    }
+}

@@ -1,0 +1,83 @@
+{
+    "navbar": {
+        "title": "Protexcel",
+        "edition": "ENTERPRISE EDITION",
+        "language": "US-EN",
+        "seniorOn": "ACCESSIBILITY: ON",
+        "seniorOff": "ACCESSIBILITY: OFF"
+    },
+    "messageShield": {
+        "title": "THREAT SCANNER",
+        "version": "V.2.0.4 ACTIVE",
+        "inputLabel": "INPUT DATA STREAM",
+        "placeholder": "Paste suspicious data here...",
+        "scanBtn": "INITIATE SCAN",
+        "processing": "PROCESSING...",
+        "clearBtn": "CLEAR DATA",
+        "systemReady": "SYSTEM READY",
+        "awaitingInput": "AWAITING INPUT",
+        "analyzing": "ANALYZING PATTERNS...",
+        "classificationLabel": "CLASSIFICATION RESULT",
+        "threatDetected": "⚠️ THREAT DETECTED",
+        "verifiedSafe": "✅ VERIFIED SAFE",
+        "confidence": "CONFIDENCE",
+        "detectedIntent": "DETECTED INTENT",
+        "analysisReport": "ANALYSIS REPORT",
+        "blockSource": "BLOCK SOURCE",
+        "reportEvent": "REPORT EVENT"
+    },
+    "callShield": {
+        "title": "SECURE VOICE MONITOR",
+        "desc": "Simulate an incoming call to test real-time audio fraud detection algorithms.",
+        "startSim": "START SIMULATION",
+        "incoming": "INCOMING TRANSMISSION...",
+        "unknownCaller": "UNKNOWN CALLER",
+        "potentialSpam": "POTENTIAL SPAM CHECK: ACTIVE",
+        "liveTranscript": "LIVE TRANSCRIPT",
+        "endCall": "END CONNECTION",
+        "callEnded": "CONNECTION TERMINATED",
+        "resetMonitor": "RESET MONITOR",
+        "threatDetected": "THREAT DETECTED",
+        "monitoringAudio": "MONITORING AUDIO"
+    },
+    "familyCircle": {
+        "title": "TRUSTED CONTACTS",
+        "addNew": "+ ADD NEW",
+        "operationalProtocol": "OPERATIONAL PROTOCOL",
+        "protocolDesc": "If a high-level threat is identified, trusted contacts will receive immediate encrypted alerts.",
+        "coachTitle": "SECURITY TRAINING (COACH)",
+        "reviewProtocols": "Review core security protocols before engaging network.",
+        "rule1Title": "Rule #1: NO SHARED CODES",
+        "rule1Desc": "Never share OTP or 2FA codes. No exceptions.",
+        "rule2Title": "Rule #2: ZERO TRUST URGENCY",
+        "rule2Desc": "\"Act Immediately\" = High Probability Threat.",
+        "rule3Title": "Rule #3: REMOTE ACCESS DENIED",
+        "rule3Desc": "Reject all requests to download AnyDesk/TeamViewer.",
+        "beginTraining": "BEGIN TRAINING MODULE",
+        "progress": "PROGRESS",
+        "moduleComplete": "MODULE COMPLETE",
+        "score": "SCORE",
+        "certifiedSecure": "CERTIFIED SECURE",
+        "retraining": "Retraining Recommended.",
+        "returnMenu": "RETURN TO MENU",
+        "inDevelopment": "IN DEVELOPMENT",
+        "featureLocked": "FEATURE LOCKED"
+    },
+    "reportScam": {
+        "title": "REPORT A NEW INCIDENT",
+        "category": "Scam Category",
+        "numberId": "Scammer's Number / ID",
+        "description": "Description",
+        "submit": "SUBMIT REPORT",
+        "submitted": "REPORT SUBMITTED ✅",
+        "heatmapTitle": "LIVE SCAM HEATMAP",
+        "recentAlerts": "RECENT ALERTS NEAR YOU",
+        "mapUnavailable": "MAP UNAVAILABLE (DEMO)"
+    },
+    "tabs": {
+        "message": "Message Shield",
+        "call": "Call Shield",
+        "family": "Family Circle",
+        "report": "Report Scam"
+    }
+}
