@@ -10,7 +10,7 @@
             "src": "backend/server.py",
             "use": "@vercel/python",
             "config": {
-                "includeFiles": "backend/scam_model.pkl"
+                "includeFiles": "backend/**"
             }
         },
         {
