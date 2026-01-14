@@ -95,6 +95,13 @@ def hybrid_check(message, prediction, confidence):
     has_threat = bool(re.search(r'\b(harvest|organs|kill|death|police|arrest|jail|warrant)\b', msg_lower))
     has_money_demand = len(re.findall(r'\b(money|pay|transfer|cash|dollar|rupee)\b', msg_lower)) >= 2
     
+    # Rule -1: Safe Conversational Guardrail (Overrides weak model predictions)
+    # If it looks like a greeting AND has no malicious keywords, trust it.
+    is_greeting = bool(re.search(r'\b(hi|hello|hey|howdy|sup|ok|okay|cool|thanks|thx|man|dude|bro)\b', msg_lower)) or "how are you" in msg_lower
+    
+    if is_greeting and not (has_urgent or has_link or has_finance or has_threat or has_money_demand):
+         return 0, "Safe conversation", 0.95, "Detected safe conversational language."
+    
     # Rule 0: Severe Threats (Organs, Kill, Arrest) = High Confidence Scam
     if has_threat:
          return 1, "Extortion / Threat", 0.98, "Detected severe threat language or authority impersonation."
