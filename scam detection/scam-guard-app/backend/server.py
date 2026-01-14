@@ -71,11 +71,19 @@ def rate_limit(f):
 # --- Model Loading ---
 load_error = None
 
+# Custom Unpickler to handle class namespace mismatch between local training (__main__) and Vercel (scam_model)
+class CustomUnpickler(pickle.Unpickler):
+    def find_class(self, module, name):
+        if module == "__main__":
+            module = "scam_model"
+        return super().find_class(module, name)
+
 def load_model():
     global model, load_error
     try:
         with open(MODEL_PATH, 'rb') as f:
-            model = pickle.load(f)
+            # Use custom unpickler to redirect __main__ lookups to scam_model
+            model = CustomUnpickler(f).load()
         print("Model loaded successfully.")
         load_error = None
     except Exception as e:
