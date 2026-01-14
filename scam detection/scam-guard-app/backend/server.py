@@ -14,7 +14,9 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'dev-secret-key')
 CORS(app)
 
-MODEL_PATH = 'scam_model.pkl'
+# Resolve absolute path to model file
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, 'scam_model.pkl')
 model = None
 
 # --- Rate Limiter (In-Memory) ---
