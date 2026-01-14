@@ -114,7 +114,7 @@ def hybrid_check(message, prediction, confidence):
             
     return prediction, None, confidence, None
 
-@app.route('/predict', methods=['POST'])
+@app.route('/api/predict', methods=['POST'])
 @rate_limit
 def predict():
     if not model:
