@@ -1,14 +1,17 @@
 
-import pandas as pd
 import numpy as np
 import re
 import pickle
-import joblib
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline, FeatureUnion
 from sklearn.base import BaseEstimator, TransformerMixin
+
+# Helper to load pandas only when training (not on Vercel inference)
+def get_pandas():
+    import pandas as pd
+    return pd
 
 # --- 1. Robust Text Preprocessor (No NLTK) ---
 class AdvancedTextPreprocessor(BaseEstimator, TransformerMixin):
@@ -68,6 +71,8 @@ def generate_synthetic_data(n_samples=200):
         labels.append(1)
         data.append(np.random.choice(safe_templates))
         labels.append(0)
+    
+    pd = get_pandas()
     return pd.DataFrame({'message': data, 'label': labels})
 
 # --- 4. Hybrid Data (Real Scams + Synthetic Safe) ---
@@ -77,6 +82,7 @@ def load_and_augment_data():
     
     # 1. Load Real Scam Data
     try:
+        pd = get_pandas()
         print("Loading real scam data from CSV...")
         df_real = pd.read_csv('unified_scam_detection_dataset.csv')
         if 'scammer_message' in df_real.columns:
