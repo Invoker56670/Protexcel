@@ -10,7 +10,9 @@ export const analyzeContent = async (text) => {
     });
 
     if (!response.ok) {
-      throw new Error('Server error');
+      const errorData = await response.text();
+      console.error("Server responded with error:", response.status, errorData);
+      throw new Error(`Server error: ${response.status}`);
     }
 
     const data = await response.json();
