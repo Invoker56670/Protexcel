@@ -54,7 +54,37 @@ def rate_limit(f):
         return f(*args, **kwargs)
     return decorated_function
 
-# --- Model Loading ---
+# --- Model Loading with Error Handling ---
+try:
+    from scam_model import AdvancedTextPreprocessor, TextComplexityExtractor
+except ImportError as e:
+    print(f"CRITICAL ERROR: Could not import helper classes: {e}")
+    AdvancedTextPreprocessor = None
+    TextComplexityExtractor = None
+
+# --- Debug Endpoint ---
+@app.route('/api/debug', methods=['GET'])
+def debug_info():
+    info = {
+        "status": "alive",
+        "cwd": os.getcwd(),
+        "files_in_backend": [],
+        "model_loaded": model is not None,
+        "model_path": MODEL_PATH,
+        "env_path": os.environ.get('PATH'),
+    }
+    try:
+        # Check files in the directory
+        info["files_in_backend"] = os.listdir(BASE_DIR)
+        
+        # Check if scam_model.pkl exists
+        info["pickle_exists"] = os.path.exists(MODEL_PATH)
+        info["pickle_size"] = os.path.getsize(MODEL_PATH) if info["pickle_exists"] else 0
+        
+    except Exception as e:
+        info["error"] = str(e)
+        
+    return jsonify(info)
 def load_model():
     global model
     try:
