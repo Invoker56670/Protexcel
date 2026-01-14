@@ -5,7 +5,12 @@ import pickle
 import numpy as np
 import re
 import os
+import sys
 import time
+
+# Ensure we can import files from the same directory (crucial for Vercel)
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
 from functools import wraps
 
 # Try import and capture error so we don't crash the whole container on startup
