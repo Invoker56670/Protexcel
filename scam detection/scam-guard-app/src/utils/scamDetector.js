@@ -1,7 +1,7 @@
 export const analyzeContent = async (text) => {
   try {
-    // Use 127.0.0.1 to avoid localhost IPv6 resolution issues with Flask
-    const response = await fetch('http://127.0.0.1:5000/predict', {
+    // Use relative path for Vercel deployment
+    const response = await fetch('/api/predict', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
